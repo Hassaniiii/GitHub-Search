@@ -30,11 +30,19 @@ class FilterViewModelTests: XCTestCase {
         XCTAssertEqual(query, "repositories?q=CBORSwift")
     }
     
-    func test_searchFilter_withSort() {
+    func test_searchFilter_withDefaultSort() {
         search_filter.keyword = "CBORSwift"
         search_filter.sort = ""
         
         let query = search_filter.searchQuery()
         XCTAssertEqual(query, "repositories?q=CBORSwift")
+    }
+    
+    func test_searchFilter_withSort() {
+        search_filter.keyword = "CBORSwift"
+        search_filter.sort = "forks"
+        
+        let query = search_filter.searchQuery()
+        XCTAssertEqual(query, "repositories?q=CBORSwift&sort=forks")
     }
 }
