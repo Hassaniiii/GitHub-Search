@@ -10,6 +10,8 @@ import UIKit
 
 class SearchKeywordCell: UITableViewCell {
     @IBOutlet weak var keyword: UITextField?
+    public var bindedBtn: SearchButton?
+    public var filter: SearchFilterViewModel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -20,6 +22,9 @@ class SearchKeywordCell: UITableViewCell {
 
 extension SearchKeywordCell: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.bindedBtn?.enable = !(textField.text?.isEmpty ?? true)
+        self.filter.keyword = textField.text
+    
         textField.resignFirstResponder()
         return true
     }

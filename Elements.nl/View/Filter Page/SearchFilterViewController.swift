@@ -10,11 +10,14 @@ import UIKit
 
 class SearchFilterViewController: BaseViewController {
     @IBOutlet weak var containerView: UIView?
-    private var viewModel: SearchFilterViewModel!
+    @IBOutlet weak var searchBtn: SearchButton?
+    
+    private var filter: SearchFilterViewModel!
     private var table: SearchFilterTableView!
     private var dataSource: SearchFilterTableDataSource!
     private lazy var initiateView: Void = {
         self.initiateVariable()
+        self.initiateTable()
         self.addFilterTable()
     }()
     
@@ -31,13 +34,23 @@ class SearchFilterViewController: BaseViewController {
     }
     
     private func initiateVariable() {
-        guard let tableFrame = self.containerView?.frame else { return }
+        self.filter = SearchFilterViewModel()
         self.dataSource = SearchFilterTableDataSource()
+        self.dataSource.filter = filter
+        self.dataSource.bindedBtn = searchBtn
+    }
+    
+    private func initiateTable() {
+        guard let tableFrame = self.containerView?.frame else { return }
         self.table = SearchFilterTableView(frame: tableFrame, dataSource: self.dataSource)
     }
     
     private func addFilterTable() {
         self.containerView?.addSubview(table)
         self.table.reloadData()
+    }
+    
+    @IBAction func search(_ sender: UIButton) {
+        print(filter.searchQuery())
     }
 }

@@ -13,9 +13,22 @@ protocol SearchFilterInterface {
     var sort: String? { get set }
 }
 
-enum SortType: String {
-    case defaults   = ""
-    case stars      = "stars"
-    case forks      = "forks"
-    case updated    = "updated"
+enum SortType: Int {
+    case defaults   = 0
+    case forks      = 1
+    case stars      = 2
+    case updated    = 3
+    
+    var descriptions: String {
+        switch self {
+            case .defaults:
+                return ""
+            case .forks:
+                return "forks"
+            case .stars:
+                return "stars"
+            case .updated:
+                return "updated"
+        }
+    }
 }

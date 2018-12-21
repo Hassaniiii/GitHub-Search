@@ -13,6 +13,7 @@ class SearchFilterTableView: BaseTableView {
         super.init(frame: frame, style: style)
         
         self.register(UINib(nibName: "SearchKeywordCell", bundle: nil), forCellReuseIdentifier: "keyword_cell")
+        self.register(UINib(nibName: "SearchSortCell", bundle: nil), forCellReuseIdentifier: "sortType_cell")
     }
     
     required init?(coder aDecoder: NSCoder) {

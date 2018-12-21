@@ -19,22 +19,36 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zxY-gJ-acR">
-                                <rect key="frame" x="0.0" y="64" width="320" height="416"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="377"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pMS-CZ-K4a" customClass="SearchButton" customModule="Elements_nl" customModuleProvider="target">
+                                <rect key="frame" x="16" y="441" width="288" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="Sa1-uK-D48"/>
+                                </constraints>
+                                <state key="normal" title="Search"/>
+                                <connections>
+                                    <action selector="search:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cUi-9k-ldX"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="zxY-gJ-acR" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="AYM-Ro-FVm"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="pMS-CZ-K4a" secondAttribute="bottom" constant="4" id="BJi-cx-WNn"/>
                             <constraint firstItem="zxY-gJ-acR" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Fg8-ZZ-PXM"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="pMS-CZ-K4a" secondAttribute="trailing" constant="16" id="cqq-Rp-1b1"/>
+                            <constraint firstItem="pMS-CZ-K4a" firstAttribute="top" secondItem="zxY-gJ-acR" secondAttribute="bottom" id="fX1-Vf-aJB"/>
                             <constraint firstItem="zxY-gJ-acR" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="kBb-kw-Ca1"/>
-                            <constraint firstItem="zxY-gJ-acR" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="yvB-K5-Wth"/>
+                            <constraint firstItem="pMS-CZ-K4a" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="okN-nY-010"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="557-RM-XHJ"/>
                     <connections>
                         <outlet property="containerView" destination="zxY-gJ-acR" id="SDK-XS-PPr"/>
+                        <outlet property="searchBtn" destination="pMS-CZ-K4a" id="kNi-XY-jEE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -47,7 +61,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="T9K-e3-RUm" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="dlU-YK-ZBS">
-                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="50"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
