@@ -8,25 +8,14 @@
 
 import UIKit
 
-class SearchFilterTableView: UITableView {
-    convenience init(frame: CGRect, dataSource: UITableViewDataSource) {
-        self.init(frame: CGRect(x: 0, y: 0, width: frame.width, height: frame.height), style: .grouped)
-        
-        self.dataSource = dataSource
-        self.initiateView()
-    }
-    
-    private override init(frame: CGRect, style: UITableView.Style) {
+class SearchFilterTableView: BaseTableView {
+    override init(frame: CGRect, style: UITableView.Style) {
         super.init(frame: frame, style: style)
+        
+        self.register(UINib(nibName: "SearchKeywordCell", bundle: nil), forCellReuseIdentifier: "keyword_cell")
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-    }
-    
-    private func initiateView() {
-        self.estimatedRowHeight = 80
-        self.rowHeight = UITableView.automaticDimension
-        self.allowsSelection = false
     }
 }
