@@ -12,7 +12,10 @@
 		171CF65021CCFDD700E30806 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 171CF64E21CCFDD700E30806 /* Main.storyboard */; };
 		171CF65221CCFDDC00E30806 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 171CF65121CCFDDC00E30806 /* Assets.xcassets */; };
 		171CF65521CCFDDC00E30806 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 171CF65321CCFDDC00E30806 /* LaunchScreen.storyboard */; };
-		171CF66021CCFDDD00E30806 /* Elements_nlTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171CF65F21CCFDDD00E30806 /* Elements_nlTests.swift */; };
+		171CF67421CD0A0F00E30806 /* FilterViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171CF67321CD0A0F00E30806 /* FilterViewModelTests.swift */; };
+		171CF67821CD0BBF00E30806 /* SearchFilterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171CF67721CD0BBF00E30806 /* SearchFilterViewModel.swift */; };
+		171CF67A21CD0C6200E30806 /* SearchFilterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171CF67921CD0C6200E30806 /* SearchFilterInterface.swift */; };
+		171CF68021CD2C5200E30806 /* SearchFilterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171CF67F21CD2C5200E30806 /* SearchFilterModel.swift */; };
 		8FAF263B727BF7CF96D87981 /* Pods_Elements_nl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB8DD641A8F07F3988F4119 /* Pods_Elements_nl.framework */; };
 /* End PBXBuildFile section */
 
@@ -34,8 +37,11 @@
 		171CF65421CCFDDC00E30806 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		171CF65621CCFDDC00E30806 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		171CF65B21CCFDDD00E30806 /* Elements.nlTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Elements.nlTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		171CF65F21CCFDDD00E30806 /* Elements_nlTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Elements_nlTests.swift; sourceTree = "<group>"; };
 		171CF66121CCFDDD00E30806 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		171CF67321CD0A0F00E30806 /* FilterViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewModelTests.swift; sourceTree = "<group>"; };
+		171CF67721CD0BBF00E30806 /* SearchFilterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFilterViewModel.swift; sourceTree = "<group>"; };
+		171CF67921CD0C6200E30806 /* SearchFilterInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFilterInterface.swift; sourceTree = "<group>"; };
+		171CF67F21CD2C5200E30806 /* SearchFilterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFilterModel.swift; sourceTree = "<group>"; };
 		3FF4D798E01E323E0510D45F /* Pods_Elements_nlTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Elements_nlTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DF3A8A7C6A039901533FD5D /* Pods-Elements.nlTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Elements.nlTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Elements.nlTests/Pods-Elements.nlTests.release.xcconfig"; sourceTree = "<group>"; };
 		5F644B5CB04E40994B4B4201 /* Pods-Elements.nl.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Elements.nl.release.xcconfig"; path = "Pods/Target Support Files/Pods-Elements.nl/Pods-Elements.nl.release.xcconfig"; sourceTree = "<group>"; };
@@ -108,7 +114,7 @@
 		171CF65E21CCFDDD00E30806 /* Elements.nlTests */ = {
 			isa = PBXGroup;
 			children = (
-				171CF65F21CCFDDD00E30806 /* Elements_nlTests.swift */,
+				171CF67321CD0A0F00E30806 /* FilterViewModelTests.swift */,
 				171CF66121CCFDDD00E30806 /* Info.plist */,
 			);
 			path = Elements.nlTests;
@@ -125,6 +131,7 @@
 		171CF66B21CCFE1700E30806 /* View Model */ = {
 			isa = PBXGroup;
 			children = (
+				171CF67721CD0BBF00E30806 /* SearchFilterViewModel.swift */,
 			);
 			path = "View Model";
 			sourceTree = "<group>";
@@ -132,6 +139,8 @@
 		171CF66C21CCFE1C00E30806 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				171CF67921CD0C6200E30806 /* SearchFilterInterface.swift */,
+				171CF67F21CD2C5200E30806 /* SearchFilterModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -222,6 +231,7 @@
 					};
 					171CF65A21CCFDDD00E30806 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1010;
 						TestTargetID = 171CF64621CCFDD700E30806;
 					};
 				};
@@ -345,7 +355,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				171CF67821CD0BBF00E30806 /* SearchFilterViewModel.swift in Sources */,
 				171CF64B21CCFDD700E30806 /* AppDelegate.swift in Sources */,
+				171CF67A21CD0C6200E30806 /* SearchFilterInterface.swift in Sources */,
+				171CF68021CD2C5200E30806 /* SearchFilterModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -353,7 +366,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				171CF66021CCFDDD00E30806 /* Elements_nlTests.swift in Sources */,
+				171CF67421CD0A0F00E30806 /* FilterViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -549,6 +562,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 92TDT63R6P;
 				INFOPLIST_FILE = Elements.nlTests/Info.plist;
@@ -559,6 +573,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.elements.Elements-nlTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Elements.nl.app/Elements.nl";
@@ -571,6 +586,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 92TDT63R6P;
 				INFOPLIST_FILE = Elements.nlTests/Info.plist;
