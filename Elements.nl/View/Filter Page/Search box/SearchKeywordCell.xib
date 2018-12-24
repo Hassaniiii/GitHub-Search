@@ -19,7 +19,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Search keyword..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="De3-WN-tt8">
-                        <rect key="frame" x="2" y="0.0" width="373" height="44.5"/>
+                        <rect key="frame" x="8" y="0.0" width="367" height="44.5"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="44" id="AX5-cF-27j"/>
                         </constraints>
@@ -40,7 +40,7 @@
                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="h6j-J2-NE3" secondAttribute="trailing" constant="8" id="4Fe-FY-DBv"/>
-                    <constraint firstItem="De3-WN-tt8" firstAttribute="leading" secondItem="pyb-kn-zig" secondAttribute="leading" constant="2" id="CrM-vk-nJl"/>
+                    <constraint firstItem="De3-WN-tt8" firstAttribute="leading" secondItem="pyb-kn-zig" secondAttribute="leading" constant="8" id="CrM-vk-nJl"/>
                     <constraint firstItem="De3-WN-tt8" firstAttribute="top" secondItem="pyb-kn-zig" secondAttribute="top" id="NGa-cK-Gim"/>
                     <constraint firstAttribute="bottom" secondItem="De3-WN-tt8" secondAttribute="bottom" id="fCF-pQ-v9d"/>
                     <constraint firstItem="h6j-J2-NE3" firstAttribute="top" secondItem="pyb-kn-zig" secondAttribute="top" id="hlm-s7-zJM"/>
