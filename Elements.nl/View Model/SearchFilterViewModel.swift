@@ -16,7 +16,7 @@ class SearchFilterViewModel: NSObject {
             filter.keyword = "repositories?q=\(keyword)"
         }
         get {
-            return filter.keyword
+            return filter.keyword?.trimmingCharacters(in: .whitespacesAndNewlines)
         }
     }
     var sort: String {
@@ -25,7 +25,7 @@ class SearchFilterViewModel: NSObject {
         }
         get {
             if let sortStr = filter.sort, !sortStr.isEmpty {
-                return "&sort=" + sortStr
+                return "&sort=" + sortStr.trimmingCharacters(in: .whitespacesAndNewlines)
             }
             return ""
         }

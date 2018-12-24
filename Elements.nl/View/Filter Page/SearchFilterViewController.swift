@@ -51,6 +51,5 @@ class SearchFilterViewController: BaseViewController {
     }
     
     @IBAction func search(_ sender: UIButton) {
-        print(filter.searchQuery())
     }
 }
