@@ -6,8 +6,6 @@
 //  Copyright © 2018 Hassan Shahbazi. All rights reserved.
 //
 
-import Foundation
-
 protocol SearchFilterInterface {
     var keyword: String? { get set }
     var sort: String? { get set }
