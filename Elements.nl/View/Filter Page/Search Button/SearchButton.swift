@@ -26,15 +26,15 @@ class SearchButton: UIButton {
         self.disableBtn()
         self.layer.masksToBounds = true
         self.layer.cornerRadius = 8.0
+        
+        self.tintColor = Theme.fontColor
     }
     
     private func enableBtn() {
-        self.backgroundColor = UIColor.black
-        self.tintColor = UIColor.white
+        self.backgroundColor = Theme.backgroundColor
     }
     
     private func disableBtn() {
-        self.backgroundColor = UIColor.lightGray
-        self.tintColor = UIColor.white
+        self.backgroundColor = Theme.disabledColor
     }
 }

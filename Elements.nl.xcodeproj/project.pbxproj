@@ -18,6 +18,8 @@
 		171CF68021CD2C5200E30806 /* SearchFilterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171CF67F21CD2C5200E30806 /* SearchFilterModel.swift */; };
 		171CF68221CD53EB00E30806 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171CF68121CD53EB00E30806 /* BaseViewController.swift */; };
 		171CF68421CD566700E30806 /* SearchFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171CF68321CD566700E30806 /* SearchFilterViewController.swift */; };
+		17A1D29021D15D59008DA94D /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A1D28F21D15D59008DA94D /* Theme.swift */; };
+		17A1D29221D15D75008DA94D /* ThemeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A1D29121D15D75008DA94D /* ThemeTests.swift */; };
 		17B3CA5B21CD5A0200DFBC14 /* BaseTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B3CA5A21CD5A0200DFBC14 /* BaseTableView.swift */; };
 		17B3CA5D21CD5C0D00DFBC14 /* SearchFilterTableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B3CA5C21CD5C0D00DFBC14 /* SearchFilterTableDataSource.swift */; };
 		17B3CA6421CD671600DFBC14 /* SearchKeywordCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17B3CA6321CD671600DFBC14 /* SearchKeywordCell.xib */; };
@@ -54,6 +56,8 @@
 		171CF67F21CD2C5200E30806 /* SearchFilterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFilterModel.swift; sourceTree = "<group>"; };
 		171CF68121CD53EB00E30806 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		171CF68321CD566700E30806 /* SearchFilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFilterViewController.swift; sourceTree = "<group>"; };
+		17A1D28F21D15D59008DA94D /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		17A1D29121D15D75008DA94D /* ThemeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeTests.swift; sourceTree = "<group>"; };
 		17B3CA5A21CD5A0200DFBC14 /* BaseTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableView.swift; sourceTree = "<group>"; };
 		17B3CA5C21CD5C0D00DFBC14 /* SearchFilterTableDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFilterTableDataSource.swift; sourceTree = "<group>"; };
 		17B3CA6321CD671600DFBC14 /* SearchKeywordCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchKeywordCell.xib; sourceTree = "<group>"; };
@@ -122,6 +126,7 @@
 		171CF64921CCFDD700E30806 /* Elements.nl */ = {
 			isa = PBXGroup;
 			children = (
+				17A1D28E21D15D41008DA94D /* Helper */,
 				171CF66A21CCFE0E00E30806 /* View */,
 				171CF66B21CCFE1700E30806 /* View Model */,
 				171CF66C21CCFE1C00E30806 /* Model */,
@@ -135,6 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				171CF67321CD0A0F00E30806 /* FilterViewModelTests.swift */,
+				17A1D29121D15D75008DA94D /* ThemeTests.swift */,
 				171CF66121CCFDDD00E30806 /* Info.plist */,
 			);
 			path = Elements.nlTests;
@@ -184,6 +190,14 @@
 				171CF65321CCFDDC00E30806 /* LaunchScreen.storyboard */,
 			);
 			path = "User Interface";
+			sourceTree = "<group>";
+		};
+		17A1D28E21D15D41008DA94D /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				17A1D28F21D15D59008DA94D /* Theme.swift */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 		17B3CA5921CD588100DFBC14 /* Filter Page */ = {
@@ -423,6 +437,7 @@
 				17B3CA5D21CD5C0D00DFBC14 /* SearchFilterTableDataSource.swift in Sources */,
 				17B3CA6621CD67D900DFBC14 /* SearchKeywordCell.swift in Sources */,
 				171CF67821CD0BBF00E30806 /* SearchFilterViewModel.swift in Sources */,
+				17A1D29021D15D59008DA94D /* Theme.swift in Sources */,
 				171CF64B21CCFDD700E30806 /* AppDelegate.swift in Sources */,
 				17B3CA6821CD687400DFBC14 /* SearchFilterTableView.swift in Sources */,
 				171CF67A21CD0C6200E30806 /* SearchFilterInterface.swift in Sources */,
@@ -439,6 +454,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				171CF67421CD0A0F00E30806 /* FilterViewModelTests.swift in Sources */,
+				17A1D29221D15D75008DA94D /* ThemeTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

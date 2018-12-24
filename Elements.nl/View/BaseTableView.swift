@@ -28,5 +28,6 @@ class BaseTableView: UITableView {
         self.estimatedRowHeight = 80
         self.rowHeight = UITableView.automaticDimension
         self.allowsSelection = false
+        self.tableFooterView = UIView()
     }
 }

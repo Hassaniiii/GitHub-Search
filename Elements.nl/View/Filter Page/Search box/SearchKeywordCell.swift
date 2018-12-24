@@ -17,6 +17,7 @@ class SearchKeywordCell: UITableViewCell {
         super.awakeFromNib()
         
         keyword?.returnKeyType = .done
+        self.tintColor = Theme.backgroundColor
     }
 }
 
