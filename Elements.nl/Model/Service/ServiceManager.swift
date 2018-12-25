@@ -12,7 +12,7 @@ import netfox
 typealias serviceCompletion = ((_ response: [String:Any]?, _ error: Error?) -> Void)
 
 class ServiceManager: NSObject {
-    private let manager = NFXManager.sharedManager
+    private let manager = Session().manager
     
     public func APICall(_ url: URLRequestConvertible, on completion: @escaping serviceCompletion) {
         print(url)
@@ -27,16 +27,15 @@ class ServiceManager: NSObject {
     }
 }
 
-class NFXManager: SessionManager {
-    static let sharedManager: NFXManager = {
+class Session: SessionManager {
+    lazy var manager: SessionManager = {
         let configuration = URLSessionConfiguration.default
-        configuration.protocolClasses?.insert(NFXProtocol.self, at: 0)
         configuration.httpAdditionalHeaders = SessionManager.defaultHTTPHeaders
         configuration.timeoutIntervalForRequest = 120
         configuration.timeoutIntervalForResource = 120
         if #available(iOS 11, *) {
             configuration.waitsForConnectivity = true
         }
-        return NFXManager(configuration: configuration)
+        return SessionManager(configuration: configuration)
     }()
 }

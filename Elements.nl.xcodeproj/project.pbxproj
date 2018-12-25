@@ -190,11 +190,8 @@
 		171CF66C21CCFE1C00E30806 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				171CF67921CD0C6200E30806 /* SearchFilterInterface.swift */,
-				171CF67F21CD2C5200E30806 /* SearchFilterModel.swift */,
-				17A1D2A621D185A4008DA94D /* SearchResultBaseModel.swift */,
-				17A1D29321D1650F008DA94D /* SearchResultModel.swift */,
-				17A1D29521D165C7008DA94D /* SearchResultOwnerModel.swift */,
+				8468DD4721D20CD500443E32 /* Service */,
+				8468DD4821D20DD500443E32 /* Object */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -221,8 +218,6 @@
 			isa = PBXGroup;
 			children = (
 				17A1D28F21D15D59008DA94D /* Theme.swift */,
-				17A1D2A021D171B3008DA94D /* ServiceManager.swift */,
-				17A1D2A421D17AB0008DA94D /* ServiceAPIRouter.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -275,6 +270,43 @@
 				4DF3A8A7C6A039901533FD5D /* Pods-Elements.nlTests.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		8468DD4721D20CD500443E32 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				17A1D2A021D171B3008DA94D /* ServiceManager.swift */,
+				17A1D2A421D17AB0008DA94D /* ServiceAPIRouter.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		8468DD4821D20DD500443E32 /* Object */ = {
+			isa = PBXGroup;
+			children = (
+				8468DD4921D20DE900443E32 /* Filter */,
+				8468DD4A21D20DF200443E32 /* Result */,
+			);
+			path = Object;
+			sourceTree = "<group>";
+		};
+		8468DD4921D20DE900443E32 /* Filter */ = {
+			isa = PBXGroup;
+			children = (
+				171CF67921CD0C6200E30806 /* SearchFilterInterface.swift */,
+				171CF67F21CD2C5200E30806 /* SearchFilterModel.swift */,
+			);
+			path = Filter;
+			sourceTree = "<group>";
+		};
+		8468DD4A21D20DF200443E32 /* Result */ = {
+			isa = PBXGroup;
+			children = (
+				17A1D2A621D185A4008DA94D /* SearchResultBaseModel.swift */,
+				17A1D29321D1650F008DA94D /* SearchResultModel.swift */,
+				17A1D29521D165C7008DA94D /* SearchResultOwnerModel.swift */,
+			);
+			path = Result;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -424,7 +456,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Elements.nl/Pods-Elements.nl-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-Elements.nl/Pods-Elements.nl-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/netfox/netfox.framework",
@@ -437,7 +469,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Elements.nl/Pods-Elements.nl-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Elements.nl/Pods-Elements.nl-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		EC1EED76AA61155D86D25A54 /* [CP] Embed Pods Frameworks */ = {
@@ -446,7 +478,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Elements.nlTests/Pods-Elements.nlTests-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-Elements.nlTests/Pods-Elements.nlTests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/OHHTTPStubs/OHHTTPStubs.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -455,7 +487,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Elements.nlTests/Pods-Elements.nlTests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Elements.nlTests/Pods-Elements.nlTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
