@@ -23,7 +23,7 @@ class ResultViewModelTests: XCTestCase {
         let exp_success = self.expectation(description: "search result complete response")
         self.APICall_Success_CompleteResponse()
         
-        searchResultViewModel.getSearchResult(using: self.mockFilterViewModel()) { (items, error) in
+        searchResultViewModel.getSearchResult(using: self.mockFilterViewModel(), at: 0) { (items, error) in
             XCTAssertNil(error)
             XCTAssertNotNil(items)
             XCTAssertGreaterThanOrEqual(items?.count ?? 0, 0)
@@ -37,7 +37,7 @@ class ResultViewModelTests: XCTestCase {
         let exp_success = self.expectation(description: "search result complete response")
         self.APICall_Success_CompleteResponse()
         
-        searchResultViewModel.getSearchResult(using: self.mockFilterViewModel()) { (items, error) in
+        searchResultViewModel.getSearchResult(using: self.mockFilterViewModel(), at: 0) { (items, error) in
             XCTAssertNotNil(items?.first)
             
             guard let item = items?.first else { return }
@@ -67,7 +67,7 @@ class ResultViewModelTests: XCTestCase {
         let exp_success = self.expectation(description: "search result empty response")
         self.APICall_Success_EmptyResponse()
         
-        searchResultViewModel.getSearchResult(using: self.mockFilterViewModel()) { (items, error) in
+        searchResultViewModel.getSearchResult(using: self.mockFilterViewModel(), at: 0) { (items, error) in
             XCTAssertNil(error)
             XCTAssertNotNil(items)
             XCTAssertEqual(items?.count ?? 1, 0)
@@ -81,7 +81,7 @@ class ResultViewModelTests: XCTestCase {
         let exp_success = self.expectation(description: "search result nil response")
         self.APICall_Success_NilResponse()
         
-        searchResultViewModel.getSearchResult(using: self.mockFilterViewModel()) { (items, error) in
+        searchResultViewModel.getSearchResult(using: self.mockFilterViewModel(), at: 0) { (items, error) in
             XCTAssertNil(error)
             XCTAssertNotNil(items)
             XCTAssertEqual(items?.count ?? 1, 0)
@@ -95,13 +95,38 @@ class ResultViewModelTests: XCTestCase {
         let exp_failure = self.expectation(description: "search result nil response")
         self.APICall_Failure()
         
-        searchResultViewModel.getSearchResult(using: self.mockFilterViewModel()) { (items, error) in
+        searchResultViewModel.getSearchResult(using: self.mockFilterViewModel(), at: 0) { (items, error) in
             XCTAssertNotNil(error)
             XCTAssertNil(items)
             
             exp_failure.fulfill()
         }
         waitForExpectations(timeout: 1.0, handler: nil)
+    }
+    
+    func test_searchResult_CachingMechanismt() {
+        let exp_success = self.expectation(description: "search result with huge complete respo")
+        self.APICall_HugeResponse()
+        
+        searchResultViewModel.getSearchResult(using: self.mockFilterViewModel(), at: 0) { (items, error) in
+            XCTAssertEqual(items?.count ?? 0, 10)
+            XCTAssertNotNil(items?.first)
+            
+            guard let firstItem = items?.first else { return }
+            XCTAssertEqual(firstItem.id?.intValue, 44838949)
+            
+            self.searchResultViewModel.getSearchResult(using: self.mockFilterViewModel(), at: 1) { (items, error) in
+                XCTAssertEqual(items?.count ?? 0, 10)
+                XCTAssertNotNil(items?.first)
+                
+                guard let firstItem = items?.first else { return }
+                XCTAssertEqual(firstItem.id?.intValue, 20822291)
+                
+                exp_success.fulfill()
+            }
+        }
+        
+        waitForExpectations(timeout: 3.0, handler: nil)
     }
 }
 
@@ -139,6 +164,17 @@ extension ResultViewModelTests {
     fileprivate func APICall_Failure() {
         stub(condition: stubsURL) { _ in
             return OHHTTPStubsResponse(jsonObject: [:], statusCode: 500, headers: nil)
+        }
+    }
+    
+    fileprivate func APICall_HugeResponse() {
+        stub(condition: stubsURL) { _ in
+            return OHHTTPStubsResponse(
+                fileAtPath: OHPathForFile("github_huge_search_result.json", type(of: self))!,
+                statusCode: 200,
+                headers: ["Accept": "application/vnd.github.mercy-preview+json",
+                          "User-Agent": "hassaniiii"]
+            )
         }
     }
     

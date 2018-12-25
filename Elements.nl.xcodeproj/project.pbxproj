@@ -37,6 +37,7 @@
 		17B3CA6B21CD6FAB00DFBC14 /* SearchSortCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17B3CA6A21CD6FAB00DFBC14 /* SearchSortCell.xib */; };
 		17B3CA6D21CD703600DFBC14 /* SearchSortCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B3CA6C21CD703600DFBC14 /* SearchSortCell.swift */; };
 		17B3CA7021CD75AA00DFBC14 /* SearchButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B3CA6F21CD75AA00DFBC14 /* SearchButton.swift */; };
+		8468DD4C21D2250D00443E32 /* github_huge_search_result.json in Resources */ = {isa = PBXBuildFile; fileRef = 8468DD4B21D2250D00443E32 /* github_huge_search_result.json */; };
 		8FAF263B727BF7CF96D87981 /* Pods_Elements_nl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB8DD641A8F07F3988F4119 /* Pods_Elements_nl.framework */; };
 /* End PBXBuildFile section */
 
@@ -87,6 +88,7 @@
 		3FF4D798E01E323E0510D45F /* Pods_Elements_nlTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Elements_nlTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DF3A8A7C6A039901533FD5D /* Pods-Elements.nlTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Elements.nlTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Elements.nlTests/Pods-Elements.nlTests.release.xcconfig"; sourceTree = "<group>"; };
 		5F644B5CB04E40994B4B4201 /* Pods-Elements.nl.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Elements.nl.release.xcconfig"; path = "Pods/Target Support Files/Pods-Elements.nl/Pods-Elements.nl.release.xcconfig"; sourceTree = "<group>"; };
+		8468DD4B21D2250D00443E32 /* github_huge_search_result.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = github_huge_search_result.json; sourceTree = "<group>"; };
 		927D4F522005D7BCF7141AFD /* Pods-Elements.nl.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Elements.nl.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Elements.nl/Pods-Elements.nl.debug.xcconfig"; sourceTree = "<group>"; };
 		93BE91D0C5C451F2D448FFEE /* Pods-Elements.nlTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Elements.nlTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Elements.nlTests/Pods-Elements.nlTests.debug.xcconfig"; sourceTree = "<group>"; };
 		CEB8DD641A8F07F3988F4119 /* Pods_Elements_nl.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Elements_nl.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -157,6 +159,7 @@
 		171CF65E21CCFDDD00E30806 /* Elements.nlTests */ = {
 			isa = PBXGroup;
 			children = (
+				8468DD4B21D2250D00443E32 /* github_huge_search_result.json */,
 				17A1D29C21D16F34008DA94D /* github_search_result.json */,
 				171CF67321CD0A0F00E30806 /* FilterViewModelTests.swift */,
 				17A1D29921D16E32008DA94D /* ResultViewModelTests.swift */,
@@ -407,6 +410,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8468DD4C21D2250D00443E32 /* github_huge_search_result.json in Resources */,
 				17A1D29D21D16F34008DA94D /* github_search_result.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
