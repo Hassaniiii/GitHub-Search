@@ -45,15 +45,49 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="557-RM-XHJ"/>
+                    <navigationItem key="navigationItem" id="557-RM-XHJ">
+                        <barButtonItem key="backBarButtonItem" title="Filters" id="dAV-1m-8T8"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="containerView" destination="zxY-gJ-acR" id="SDK-XS-PPr"/>
                         <outlet property="searchBtn" destination="pMS-CZ-K4a" id="kNi-XY-jEE"/>
+                        <segue destination="Ywu-uO-FwR" kind="show" identifier="result_show" id="VgE-42-bqf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="528.75" y="135"/>
+        </scene>
+        <!--Search Result View Controller-->
+        <scene sceneID="RZM-Q3-874">
+            <objects>
+                <viewController storyboardIdentifier="resultViewController" id="Ywu-uO-FwR" customClass="SearchResultViewController" customModule="Elements_nl" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="If1-Vo-7D3">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aEl-mL-Whv">
+                                <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="aEl-mL-Whv" firstAttribute="top" secondItem="KHf-xv-SrU" secondAttribute="top" id="Cgi-16-xzM"/>
+                            <constraint firstItem="aEl-mL-Whv" firstAttribute="trailing" secondItem="KHf-xv-SrU" secondAttribute="trailing" id="Igb-4P-ULJ"/>
+                            <constraint firstItem="aEl-mL-Whv" firstAttribute="bottom" secondItem="KHf-xv-SrU" secondAttribute="bottom" id="aEi-lX-8Sf"/>
+                            <constraint firstItem="aEl-mL-Whv" firstAttribute="leading" secondItem="KHf-xv-SrU" secondAttribute="leading" id="xIW-p7-ZqR"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="KHf-xv-SrU"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="sk6-PV-8Ej"/>
+                    <connections>
+                        <outlet property="containerView" destination="aEl-mL-Whv" id="omo-NB-ZCC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FLt-aF-BlE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1286.25" y="135"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="wbX-aQ-RQQ">
@@ -61,7 +95,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="T9K-e3-RUm" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="dlU-YK-ZBS">
-                        <rect key="frame" x="0.0" y="20" width="320" height="50"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>

@@ -13,6 +13,7 @@ typealias resultCompletion = ((_ items: [SearchResultModelController]?, _ error:
 
 class SearchResultViewModel: NSObject {
     private var items: [SearchResultModelController] = []
+    private var displayItems: Array<SearchResultModelController> = []
     private var pageSize: Int = 10
     private var serviceManager: ServiceManager!
     
@@ -29,8 +30,10 @@ class SearchResultViewModel: NSObject {
     private func getCachedResponse(_ page: Int, _ completion: @escaping resultCompletion) {
         let startIndex = page * pageSize
         let endIndex = isEnough(page) ? (page + 1) * pageSize : items.count
+        let itemSlice = items[startIndex..<endIndex]
         
-        completion(Array(items[startIndex..<endIndex]), nil)
+        displayItems.append(contentsOf: itemSlice)
+        completion(Array(itemSlice), nil)
     }
     
     private func sendSearchRequest(_ filter: SearchFilterViewModel, _ completion: @escaping resultCompletion) {
@@ -50,6 +53,11 @@ class SearchResultViewModel: NSObject {
             completion([], nil)
         }
 
+    }
+    
+    //MARK:- View data provider
+    public func numberOfItems() -> Int {
+        return displayItems.count
     }
 }
 

@@ -17,9 +17,9 @@ class BaseViewController: UIViewController {
 
     internal func setNavigation(title: String) {
         let navigationAttribute: [NSAttributedString.Key:Any] = [.font: UIFont.boldSystemFont(ofSize: 15.0),
-                                                                 .foregroundColor: UIColor.black]
+                                                                 .foregroundColor: Theme.backgroundColor]
         self.navigationController?.navigationBar.titleTextAttributes = navigationAttribute
-        self.navigationController?.navigationBar.tintColor = UIColor.black
+        self.navigationController?.navigationBar.tintColor = Theme.backgroundColor
         self.navigationItem.title = title
     }
 }

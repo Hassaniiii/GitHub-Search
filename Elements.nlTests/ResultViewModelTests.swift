@@ -109,6 +109,7 @@ class ResultViewModelTests: XCTestCase {
         self.APICall_HugeResponse()
         
         searchResultViewModel.getSearchResult(using: self.mockFilterViewModel(), at: 0) { (items, error) in
+            XCTAssertEqual(self.searchResultViewModel.numberOfItems(), 10)
             XCTAssertEqual(items?.count ?? 0, 10)
             XCTAssertNotNil(items?.first)
             
@@ -116,6 +117,7 @@ class ResultViewModelTests: XCTestCase {
             XCTAssertEqual(firstItem.id?.intValue, 44838949)
             
             self.searchResultViewModel.getSearchResult(using: self.mockFilterViewModel(), at: 1) { (items, error) in
+                XCTAssertEqual(self.searchResultViewModel.numberOfItems(), 20)
                 XCTAssertEqual(items?.count ?? 0, 10)
                 XCTAssertNotNil(items?.first)
                 

@@ -9,10 +9,11 @@
 import UIKit
 
 class BaseTableView: UITableView {
-    required convenience init(frame: CGRect, dataSource: UITableViewDataSource) {
+    required convenience init(frame: CGRect, dataSource: UITableViewDataSource, delegate: UITableViewDelegate? = nil) {
         self.init(frame: CGRect(x: 0, y: 0, width: frame.width, height: frame.height), style: .grouped)
         
         self.dataSource = dataSource
+        if let delegate = delegate { self.delegate = delegate }
         self.initiateView()
     }
     
@@ -29,5 +30,6 @@ class BaseTableView: UITableView {
         self.rowHeight = UITableView.automaticDimension
         self.allowsSelection = false
         self.tableFooterView = UIView()
+        self.separatorStyle = .none
     }
 }
