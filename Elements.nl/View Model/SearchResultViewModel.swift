@@ -9,7 +9,7 @@
 import Foundation
 import ObjectMapper
 
-typealias resultCompletion = ((_ items: [SearchResultModelController]?) -> Void)
+typealias resultCompletion = ((_ items: [SearchResultModelController]?, _ error: Error?) -> Void)
 
 class SearchResultViewModel: NSObject {
     private var serviceManager: ServiceManager!
@@ -23,11 +23,16 @@ class SearchResultViewModel: NSObject {
     public func getSearchResult(using filter: SearchFilterViewModel, on completion: @escaping resultCompletion) {
         let router = SearchResultRouter.fetch(query: filter.searchQuery())        
         self.serviceManager.APICall(router) { (response, error) in
-            if let _ = error { return; }
+            if let error = error {
+                completion(nil, error);
+                return;
+            }
             
             if let response = response, let result = Mapper<SearchResultBaseModelController>().map(JSON: response) {
-                print(result.items)
+                completion(result.items ?? [], nil)
+                return
             }
+            completion([], nil)
         }
     }
 }

@@ -16,7 +16,6 @@ protocol SearchResultModel {
     var owner: SearchResultOwnerModelController? { get set }
     var url: String? { get set }
     var desc: String? { get set }
-    var lastUpdate: String? { get set }
     var archived: NSNumber? { get set }
     var openIssuesCount: NSNumber? { get set }
     var starsCount: NSNumber? { get set }
@@ -29,19 +28,27 @@ class SearchResultModelController: SearchResultModel, Mappable {
     var owner: SearchResultOwnerModelController?
     var url: String?
     var desc: String?
-    internal var lastUpdate: String?
     var archived: NSNumber?
     var openIssuesCount: NSNumber?
     var starsCount: NSNumber?
     var update: String? {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd HH:mm"
-        formatter.timeZone = TimeZone(identifier: "GMT")
-        
-        guard let lastUpdate = self.lastUpdate else { return nil }
-        guard let date = formatter.date(from: lastUpdate) else { return nil }
-        return formatter.string(from: date)
+        set {
+            formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+            formatter.timeZone = TimeZone(identifier: "GMT")
+            
+            guard let dateStr = newValue else { return }
+            _update = formatter.date(from: dateStr)
+        }
+        get {
+            formatter.dateFormat = "yyyy-MM-dd HH:mm"
+            formatter.timeZone = TimeZone(identifier: "GMT")
+            
+            guard let date = _update else { return "" }
+            return formatter.string(from: date)
+        }
     }
+    private let formatter = DateFormatter()
+    private var _update: Date?
     
     required init?(map: Map) {}
     
@@ -52,7 +59,7 @@ class SearchResultModelController: SearchResultModel, Mappable {
         self.owner <- map["owner"]
         self.url <- map["html_url"]
         self.desc <- map["description"]
-        self.lastUpdate <- map["updated_at"]
+        self.update <- map["updated_at"]
         self.archived <- map["archived"]
         self.openIssuesCount <- map["open_issues_count"]
         self.starsCount <- map["stargazers_count"]

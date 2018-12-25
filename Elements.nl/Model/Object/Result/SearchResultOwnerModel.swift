@@ -9,28 +9,38 @@ import ObjectMapper
 
 protocol SearchResultOwnerModel {
     var id: NSNumber? { get set }
-    var avatarURL: String? { get set }
-    var profileURL: String? { get set }
+    var avatarURL: URL? { get set }
+    var profileURL: URL? { get set }
 }
 
 class SearchResultOwnerModelController: SearchResultOwnerModel, Mappable {
     var id: NSNumber?
-    internal var avatarURL: String?
-    internal var profileURL: String?
-    var avatar: URL? {
-        guard let avatarURL = avatarURL else { return nil }
-        return URL(string: avatarURL)
+    var avatarURL: URL?
+    var profileURL: URL?
+    private var _avatarURL: String? {
+        set {
+            guard let url = newValue else { return }
+            avatarURL = URL(string: url)
+        }
+        get {
+            return avatarURL?.absoluteString
+        }
     }
-    var url: URL? {
-        guard let profileURL = profileURL else { return nil }
-        return URL(string: profileURL)
+    private var _profileURL: String? {
+        set {
+            guard let url = newValue else { return }
+            profileURL = URL(string: url)
+        }
+        get {
+            return profileURL?.absoluteString
+        }
     }
     
     required init?(map: Map) {}
     
     func mapping(map: Map) {
         self.id <- map["id"]
-        self.avatarURL <- map["avatar_url"]
-        self.profileURL <- map["html_url"]
+        self._avatarURL <- map["avatar_url"]
+        self._profileURL <- map["html_url"]
     }
 }
