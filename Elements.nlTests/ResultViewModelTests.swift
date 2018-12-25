@@ -91,7 +91,7 @@ class ResultViewModelTests: XCTestCase {
         waitForExpectations(timeout: 1.0, handler: nil)
     }
     
-    func tes_searchResult_Failure() {
+    func test_searchResult_Failure() {
         let exp_failure = self.expectation(description: "search result nil response")
         self.APICall_Failure()
         
@@ -102,7 +102,6 @@ class ResultViewModelTests: XCTestCase {
             exp_failure.fulfill()
         }
         waitForExpectations(timeout: 1.0, handler: nil)
-
     }
 }
 

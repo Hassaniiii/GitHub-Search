@@ -15,7 +15,7 @@ class ServiceManager: NSObject {
     private let manager = Session().manager
     
     public func APICall(_ url: URLRequestConvertible, on completion: @escaping serviceCompletion) {
-        self.manager.request(url).responseJSON { (response) in
+        self.manager.request(url).validate(statusCode: 200...300).responseJSON { (response) in
             switch response.result {
                 case .success(_):
                     completion(response.result.value as? [String : Any], nil)
