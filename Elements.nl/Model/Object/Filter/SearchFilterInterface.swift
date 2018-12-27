@@ -29,4 +29,6 @@ enum SortType: Int {
                 return "updated"
         }
     }
+
+    static let allValues = ["default", "forks", "stars", "updated"]
 }

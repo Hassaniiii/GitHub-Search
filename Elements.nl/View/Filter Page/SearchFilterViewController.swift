@@ -42,7 +42,7 @@ class SearchFilterViewController: BaseViewController {
     
     private func initiateTable() {
         guard let tableFrame = self.containerView?.frame else { return }
-        self.table = SearchFilterTableView(frame: tableFrame, dataSource: self.dataSource)
+        self.table = SearchFilterTableView(frame: tableFrame, dataSource: self.dataSource, delegate: self.dataSource)
     }
     
     private func addFilterTable() {

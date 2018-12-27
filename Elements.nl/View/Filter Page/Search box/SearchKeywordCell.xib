@@ -19,7 +19,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Search keyword..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="De3-WN-tt8">
-                        <rect key="frame" x="8" y="0.0" width="367" height="44.5"/>
+                        <rect key="frame" x="8" y="0.0" width="326" height="44.5"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="44" id="AX5-cF-27j"/>
                         </constraints>
@@ -44,8 +44,8 @@
                     <constraint firstItem="De3-WN-tt8" firstAttribute="top" secondItem="pyb-kn-zig" secondAttribute="top" id="NGa-cK-Gim"/>
                     <constraint firstAttribute="bottom" secondItem="De3-WN-tt8" secondAttribute="bottom" id="fCF-pQ-v9d"/>
                     <constraint firstItem="h6j-J2-NE3" firstAttribute="top" secondItem="pyb-kn-zig" secondAttribute="top" id="hlm-s7-zJM"/>
+                    <constraint firstItem="h6j-J2-NE3" firstAttribute="leading" secondItem="De3-WN-tt8" secondAttribute="trailing" constant="8" id="o0B-NU-iCF"/>
                     <constraint firstAttribute="bottom" secondItem="h6j-J2-NE3" secondAttribute="bottom" id="oFq-qB-Zhm"/>
-                    <constraint firstAttribute="trailing" secondItem="De3-WN-tt8" secondAttribute="trailing" id="uc2-dv-T01"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

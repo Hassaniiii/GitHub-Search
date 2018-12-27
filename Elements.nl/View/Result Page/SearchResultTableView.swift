@@ -18,14 +18,24 @@ class SearchResultTableView: BaseTableView {
     
     override init(frame: CGRect, style: UITableView.Style) {
         super.init(frame: frame, style: .plain)
-        self.register(UINib(nibName: "SearchResultItemCell", bundle: nil), forCellReuseIdentifier: "result_cell")
         
-        self.backgroundColor = .groupTableViewBackground
+        self.registerCell()
+        self.initiateTable()
         self.initiateFooter()
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+    }
+    
+    private func registerCell() {
+        self.register(UINib(nibName: "SearchResultItemCell", bundle: nil), forCellReuseIdentifier: "result_cell")
+    }
+    
+    private func initiateTable() {
+        self.separatorStyle = .none
+        self.backgroundColor = .groupTableViewBackground
+        self.allowsSelection = false
     }
     
     private func initiateFooter() {

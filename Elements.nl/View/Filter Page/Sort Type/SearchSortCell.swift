@@ -9,16 +9,17 @@
 import UIKit
 
 class SearchSortCell: UITableViewCell {
-    @IBOutlet weak var sortTypeSegment: UISegmentedControl?
-    public var filter: SearchFilterViewModel!
+    @IBOutlet weak var sortTypeTitle: UILabel?
     
-    @IBAction func sortTypeChanged(_ sender: UISegmentedControl) {
-        self.sortTypeSelected()
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        self.backgroundColor = .white
+        self.accessoryType = .none
+        self.selectionStyle = .none
     }
     
-    private func sortTypeSelected() {
-        let selectedIndex = sortTypeSegment?.selectedSegmentIndex ?? 0
-        guard let sort = SortType(rawValue: selectedIndex) else { return }
-        filter.sort = sort.descriptions
+    public func setupCell(_ title: String) {
+        self.sortTypeTitle?.text = title
     }
 }

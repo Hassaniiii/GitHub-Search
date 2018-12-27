@@ -11,38 +11,31 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="sortType_cell" rowHeight="32" id="Br3-5e-lrx" customClass="SearchSortCell" customModule="Elements_nl" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="32"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="checkmark" indentationWidth="10" reuseIdentifier="sortType_cell" rowHeight="44" id="Br3-5e-lrx" customClass="SearchSortCell" customModule="Elements_nl" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Br3-5e-lrx" id="UNb-iW-YII">
-                <rect key="frame" x="0.0" y="0.0" width="375" height="31.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="335" height="43.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bordered" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="GFE-9X-b1h">
-                        <rect key="frame" x="0.0" y="1" width="375" height="30.5"/>
-                        <segments>
-                            <segment title="Default"/>
-                            <segment title="Forks"/>
-                            <segment title="Stars"/>
-                            <segment title="Update"/>
-                        </segments>
-                        <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
-                        <connections>
-                            <action selector="sortTypeChanged:" destination="Br3-5e-lrx" eventType="valueChanged" id="sgr-Jn-Yt3"/>
-                        </connections>
-                    </segmentedControl>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TK4-5l-hkf">
+                        <rect key="frame" x="16" y="8" width="311" height="27.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
-                    <constraint firstItem="GFE-9X-b1h" firstAttribute="top" secondItem="UNb-iW-YII" secondAttribute="top" constant="1" id="NCN-9Q-MbK"/>
-                    <constraint firstItem="GFE-9X-b1h" firstAttribute="leading" secondItem="UNb-iW-YII" secondAttribute="leading" id="UEm-6B-pSG"/>
-                    <constraint firstAttribute="bottom" secondItem="GFE-9X-b1h" secondAttribute="bottom" constant="1" id="XOU-Bl-WAf"/>
-                    <constraint firstAttribute="trailing" secondItem="GFE-9X-b1h" secondAttribute="trailing" id="XSb-5i-xlK"/>
+                    <constraint firstItem="TK4-5l-hkf" firstAttribute="leading" secondItem="UNb-iW-YII" secondAttribute="leading" constant="16" id="L7K-xa-qgf"/>
+                    <constraint firstAttribute="bottom" secondItem="TK4-5l-hkf" secondAttribute="bottom" constant="8" id="gly-JO-ge0"/>
+                    <constraint firstItem="TK4-5l-hkf" firstAttribute="top" secondItem="UNb-iW-YII" secondAttribute="top" constant="8" id="ryi-rF-jG9"/>
+                    <constraint firstAttribute="trailing" secondItem="TK4-5l-hkf" secondAttribute="trailing" constant="8" id="zWR-zD-lip"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
-                <outlet property="sortTypeSegment" destination="GFE-9X-b1h" id="Eix-uA-4qy"/>
+                <outlet property="sortTypeTitle" destination="TK4-5l-hkf" id="BMS-Gp-4Hq"/>
             </connections>
             <point key="canvasLocation" x="-343" y="-90"/>
         </tableViewCell>

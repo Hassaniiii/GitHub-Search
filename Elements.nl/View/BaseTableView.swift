@@ -9,12 +9,12 @@
 import UIKit
 
 class BaseTableView: UITableView {
-    required convenience init(frame: CGRect, dataSource: UITableViewDataSource, delegate: UITableViewDelegate? = nil) {
+    required convenience init(frame: CGRect, dataSource: UITableViewDataSource, delegate: UITableViewDelegate) {
         self.init(frame: CGRect(x: 0, y: 0, width: frame.width, height: frame.height), style: .grouped)
         
         self.dataSource = dataSource
-        if let delegate = delegate { self.delegate = delegate }
-        self.initiateView()
+        self.delegate = delegate
+        self.initiateTable()
     }
     
     override init(frame: CGRect, style: UITableView.Style) {
@@ -25,11 +25,9 @@ class BaseTableView: UITableView {
         super.init(coder: aDecoder)
     }
     
-    private func initiateView() {
+    private func initiateTable() {
         self.estimatedRowHeight = 80
         self.rowHeight = UITableView.automaticDimension
-        self.allowsSelection = false
         self.tableFooterView = UIView()
-        self.separatorStyle = .none
     }
 }

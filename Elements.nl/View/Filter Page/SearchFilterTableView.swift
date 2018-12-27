@@ -12,11 +12,22 @@ class SearchFilterTableView: BaseTableView {
     override init(frame: CGRect, style: UITableView.Style) {
         super.init(frame: frame, style: style)
         
-        self.register(UINib(nibName: "SearchKeywordCell", bundle: nil), forCellReuseIdentifier: "keyword_cell")
-        self.register(UINib(nibName: "SearchSortCell", bundle: nil), forCellReuseIdentifier: "sortType_cell")
+        self.registerCells()
+        self.initiateTable()
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+    }
+    
+    private func registerCells() {
+        self.register(UINib(nibName: "SearchKeywordCell", bundle: nil), forCellReuseIdentifier: "keyword_cell")
+        self.register(UINib(nibName: "SearchSortCell", bundle: nil), forCellReuseIdentifier: "sortType_cell")
+    }
+    
+     private func initiateTable() {
+        self.separatorStyle = .singleLine
+        self.separatorColor = Theme.backgroundColor
+        self.allowsSelection = true
     }
 }

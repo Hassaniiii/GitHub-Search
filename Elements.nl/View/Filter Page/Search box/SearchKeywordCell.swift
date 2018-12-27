@@ -18,6 +18,7 @@ class SearchKeywordCell: UITableViewCell {
         
         keyword?.returnKeyType = .done
         self.tintColor = Theme.backgroundColor
+        self.selectionStyle = .none
     }
 }
 

@@ -249,8 +249,8 @@
 			isa = PBXGroup;
 			children = (
 				17B3CA6E21CD759A00DFBC14 /* Search Button */,
-				17B3CA6921CD6F8500DFBC14 /* Sort Type */,
 				17B3CA5E21CD604A00DFBC14 /* Search box */,
+				17B3CA6921CD6F8500DFBC14 /* Sort Type */,
 				171CF68321CD566700E30806 /* SearchFilterViewController.swift */,
 				17B3CA6721CD687400DFBC14 /* SearchFilterTableView.swift */,
 				17B3CA5C21CD5C0D00DFBC14 /* SearchFilterTableDataSource.swift */,
@@ -337,8 +337,8 @@
 			children = (
 				84EB468321D2591A00A69130 /* Cell */,
 				17243E1821D4F727007F1C9F /* SearchResultViewController.swift */,
-				17243E1921D4F727007F1C9F /* SearchResultTableDataSource.swift */,
 				17243E1A21D4F727007F1C9F /* SearchResultTableView.swift */,
+				17243E1921D4F727007F1C9F /* SearchResultTableDataSource.swift */,
 			);
 			path = "Result Page";
 			sourceTree = "<group>";
