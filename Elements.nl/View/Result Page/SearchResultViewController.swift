@@ -31,8 +31,6 @@ class SearchResultViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        super.setNavigation(title: "Search Result")
     }
     
     override func viewDidLayoutSubviews() {
@@ -57,10 +55,12 @@ class SearchResultViewController: BaseViewController {
     }
     
     private func showLoading() {
-        Loading.show(title: "Please wait", message: "fetching data from GitHub...", on: self.table)
+        super.setNavigation(title: "Loading...")
+        Loading.show(title: "Please wait", message: "fetching data...", on: self.table)
     }
     
     private func hideLoading() {
+        super.setNavigation(title: "Showing \(viewModel.numberOfItems()) of \(viewModel.numberOfAllItems())")
         Loading.hide()
     }
     

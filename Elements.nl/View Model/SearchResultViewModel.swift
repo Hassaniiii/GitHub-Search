@@ -57,6 +57,10 @@ class SearchResultViewModel: NSObject {
     }
     
     //MARK:- View data provider
+    public func numberOfAllItems() -> Int {
+        return items.count
+    }
+    
     public func numberOfItems() -> Int {
         return displayItems.count
     }
