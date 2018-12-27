@@ -1,0 +1,5 @@
+language: swift
+osx_image: xcode9.3
+script:
+    - xcodebuild -workspace Elements.nl.xcworkspace -scheme Elements.nl -configuration "Release" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
+    - xcodebuild test -workspace Elements.nl.xcworkspace -scheme Elements.nl -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 6s,OS=11.3'
