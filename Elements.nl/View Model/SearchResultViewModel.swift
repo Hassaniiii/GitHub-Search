@@ -12,7 +12,7 @@ import ObjectMapper
 typealias resultCompletion = ((_ items: [SearchResultModelController]?, _ error: Error?) -> Void)
 
 class SearchResultViewModel: NSObject {
-    private var allItemsCount: NSNumber = 0
+    private var allItemsCount: NSNumber = -1
     private var items: [SearchResultModelController] = []
     private var displayItems: Array<SearchResultModelController> = []
     private var pageSize: Int = 10
@@ -26,12 +26,19 @@ class SearchResultViewModel: NSObject {
     
     public func getSearchResult(using filter: SearchFilterViewModel, at page: Int, on completion: @escaping resultCompletion) {
         if page == 0 { completion([], nil); return }
-        isCachedResponse() ? getCachedResponse(page, completion) : sendSearchRequest(filter, page, completion)
+        if isCachedResponse() { self.getCachedResponse(page - 1, completion); return }
+        if isMoreDataAvailable() { self.sendSearchRequest(filter, page - 1, completion); return }
+        
+        completion([], nil)
+    }
+    
+    public func stopSearchSession() {
+        self.serviceManager.stopSession()
     }
     
     private func getCachedResponse(_ page: Int, _ completion: @escaping resultCompletion) {
-        let startIndex = (page - 1) * pageSize
-        let endIndex = isEnough(page) ? (page * pageSize) : (items.count)
+        let startIndex = page * pageSize
+        let endIndex = isEnough(page + 1) ? (page + 1) * pageSize : items.count
         if endIndex < startIndex { completion([], nil); return }
         
         let itemSlice = items[startIndex..<endIndex]
@@ -111,6 +118,11 @@ class SearchResultViewModel: NSObject {
 extension SearchResultViewModel {
     fileprivate func isCachedResponse() -> Bool {
         return items.count != displayItems.count
+    }
+    
+    fileprivate func isMoreDataAvailable() -> Bool {
+        if allItemsCount.intValue == -1 { return true }
+        return items.count < allItemsCount.intValue
     }
     
     fileprivate func isEnough(_ page: Int) -> Bool {

@@ -23,6 +23,12 @@ class ServiceManager: NSObject {
             }
         }
     }
+    
+    public func stopSession() {
+        self.manager.session.getAllTasks { (task) in
+            task.forEach({ $0.cancel() })
+        }
+    }
 }
 
 class Session: SessionManager {

@@ -10,6 +10,8 @@ import UIKit
 
 class SearchSortCell: UITableViewCell {
     @IBOutlet weak var sortTypeTitle: UILabel?
+    private let sortTypes = SortType.allValues
+    public var filter: SearchFilterViewModel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -19,7 +21,10 @@ class SearchSortCell: UITableViewCell {
         self.selectionStyle = .none
     }
     
-    public func setupCell(_ title: String) {
+    public func setupCell(at indexPath: IndexPath) {
+        let title = sortTypes[indexPath.row]
+        
         self.sortTypeTitle?.text = title
+        self.accessoryType = (SortType(rawValue: indexPath.row)?.descriptions == filter.sort) ? .checkmark : .none
     }
 }

@@ -30,5 +30,5 @@ enum SortType: Int {
         }
     }
 
-    static let allValues = ["default", "forks", "stars", "updated"]
+    static let allValues = ["defaults", "forks", "stars", "updated"]
 }

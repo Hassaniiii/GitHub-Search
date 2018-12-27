@@ -31,7 +31,8 @@ class SearchFilterTableDataSource: NSObject, UITableViewDataSource, UITableViewD
         }
         if indexPath.section == 1, let cell = tableView.dequeueReusableCell(withIdentifier: "sortType_cell", for: indexPath) as? SearchSortCell {
             
-            cell.setupCell(SortType.allValues[indexPath.row])
+            cell.filter = self.filter
+            cell.setupCell(at: indexPath)
             return cell
         }
         

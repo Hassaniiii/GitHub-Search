@@ -40,6 +40,12 @@ class SearchResultViewController: BaseViewController {
         _ = self.initiateView
     }
 
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        viewModel.stopSearchSession()
+    }
+    
     private func initiateVariable() {
         self.viewModel = SearchResultViewModel()
         self.dataSource = SearchResultTableDataSource()
