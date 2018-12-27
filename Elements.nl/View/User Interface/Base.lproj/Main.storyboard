@@ -46,7 +46,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="557-RM-XHJ">
-                        <barButtonItem key="backBarButtonItem" title="Filters" id="dAV-1m-8T8"/>
+                        <barButtonItem key="backBarButtonItem" title=" " id="dAV-1m-8T8"/>
                     </navigationItem>
                     <connections>
                         <outlet property="containerView" destination="zxY-gJ-acR" id="SDK-XS-PPr"/>
@@ -67,7 +67,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aEl-mL-Whv">
-                                <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                                <rect key="frame" x="0.0" y="98" width="320" height="382"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                         </subviews>
@@ -80,7 +80,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="KHf-xv-SrU"/>
                     </view>
-                    <navigationItem key="navigationItem" id="sk6-PV-8Ej"/>
+                    <navigationItem key="navigationItem" prompt="Search results" id="sk6-PV-8Ej"/>
                     <connections>
                         <outlet property="containerView" destination="aEl-mL-Whv" id="omo-NB-ZCC"/>
                     </connections>
@@ -95,7 +95,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="T9K-e3-RUm" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="dlU-YK-ZBS">
-                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="50"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>

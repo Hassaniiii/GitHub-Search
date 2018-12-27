@@ -24,7 +24,7 @@ class SearchFilterViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        super.setNavigation(title: "Search Filters")
+        super.setNavigation(title: "Search filters")
     }
     
     override func viewDidLayoutSubviews() {
