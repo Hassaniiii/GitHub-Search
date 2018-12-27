@@ -27,7 +27,7 @@ class FilterViewModelTests: XCTestCase {
         search_filter.keyword = "CBORSwift"
         
         let query = search_filter.searchQuery()
-        XCTAssertEqual(query, "repositories?q=CBORSwift")
+        XCTAssertEqual(query, "repositories?q=CBORSwift&perpage=30&page=0")
     }
     
     func test_searchFilter_withDefaultSort() {
@@ -35,7 +35,7 @@ class FilterViewModelTests: XCTestCase {
         search_filter.sort = ""
         
         let query = search_filter.searchQuery()
-        XCTAssertEqual(query, "repositories?q=CBORSwift")
+        XCTAssertEqual(query, "repositories?q=CBORSwift&perpage=30&page=0")
     }
     
     func test_searchFilter_withSort() {
@@ -43,6 +43,15 @@ class FilterViewModelTests: XCTestCase {
         search_filter.sort = "forks"
         
         let query = search_filter.searchQuery()
-        XCTAssertEqual(query, "repositories?q=CBORSwift&sort=forks")
+        XCTAssertEqual(query, "repositories?q=CBORSwift&sort=forks&perpage=30&page=0")
+    }
+    
+    func test_searchFilter_increasePageCounter() {
+        search_filter.keyword = "CBORSwift"
+        search_filter.sort = "stars"
+        
+        let _ = search_filter.searchQuery()
+        let query2 = search_filter.searchQuery()
+        XCTAssertEqual(query2, "repositories?q=CBORSwift&sort=stars&perpage=30&page=1")
     }
 }

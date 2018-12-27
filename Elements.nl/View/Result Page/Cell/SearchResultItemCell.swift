@@ -33,6 +33,7 @@ class SearchResultItemCell: UITableViewCell {
         self.setupForksStars()
         self.setupProfile()
         self.setupArchived()
+        self.addGesture()
     }
     
     private func setupName() {
@@ -58,6 +59,18 @@ class SearchResultItemCell: UITableViewCell {
     }
     
     private func setupArchived() {
-        containerView.backgroundColor = (viewModel.repoArchived(at: self.indexPath)) ? .gray : .white
+        containerView.backgroundColor = (viewModel.repoArchived(at: self.indexPath)) ? .lightGray : .white
+    }
+    
+    private func addGesture() {
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(self.openProfile(_:)))
+        self.containerView.addGestureRecognizer(gesture)
+    }
+    
+    @objc private func openProfile(_ sender: UITapGestureRecognizer) {
+        guard let url = viewModel.repoURL(at: self.indexPath) else { return }
+        if UIApplication.shared.canOpenURL(url) {
+            UIApplication.shared.openURL(url)
+        }
     }
 }

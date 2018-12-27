@@ -18,8 +18,8 @@ class SearchResultTableView: BaseTableView {
     
     override init(frame: CGRect, style: UITableView.Style) {
         super.init(frame: frame, style: .plain)
-        
         self.register(UINib(nibName: "SearchResultItemCell", bundle: nil), forCellReuseIdentifier: "result_cell")
+        
         self.backgroundColor = .groupTableViewBackground
         self.initiateFooter()
     }

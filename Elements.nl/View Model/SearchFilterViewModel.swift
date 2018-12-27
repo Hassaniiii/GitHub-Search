@@ -30,6 +30,7 @@ class SearchFilterViewModel: NSObject {
             return ""
         }
     }
+    private var pageCounter: Int = 1
     
     override init() {
         super.init()
@@ -40,6 +41,14 @@ class SearchFilterViewModel: NSObject {
     public func searchQuery() -> String {
         guard let keyword = self.keyword else { return "" }
         
-        return keyword + self.sort
+        return self.searchQueryWithPaging(keyword + self.sort)
+    }
+    
+    private func searchQueryWithPaging(_ currentQuery: String) -> String {
+        if currentQuery == "" { return "" }
+        let pagingQuery = "\(currentQuery)&perpage=30&page=\(pageCounter)"
+        pageCounter += 1
+        
+        return pagingQuery
     }
 }
