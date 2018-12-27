@@ -6,7 +6,8 @@ target 'Elements.nl' do
   pod 'ObjectMapper'
   pod 'SDWebImage', '~>3.8'
   pod 'PKHUD'
-
+  pod 'PullToRefreshKit'
+  
   target 'Elements.nlTests' do
     inherit! :search_paths
     

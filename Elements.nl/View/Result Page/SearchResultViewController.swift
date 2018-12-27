@@ -8,6 +8,7 @@
 
 import UIKit
 import PKHUD
+import PullToRefreshKit
 
 class SearchResultViewController: BaseViewController {
     @IBOutlet weak var containerView: UIView?
@@ -18,6 +19,7 @@ class SearchResultViewController: BaseViewController {
     private var viewModel: SearchResultViewModel!
     private lazy var initiateView: Void = {
         self.initiateVariable()
+        self.initiateTable()
         self.loadData()
     }()
     private var page: Int = 0
@@ -49,13 +51,13 @@ class SearchResultViewController: BaseViewController {
         self.showLoading()
         viewModel.getSearchResult(using: filter, at: page) { (items, error) in
             self.hideLoading()
-            self.initiateTable()
-            self.addResultTable()
+            self.switchToNoMoreData(items?.count == 0 || items == nil)
+            self.table.reloadData()
         }
     }
     
     private func showLoading() {
-        Loading.show(title: "Please wait", message: "fetching data from GitHub...", on: self.containerView)
+        Loading.show(title: "Please wait", message: "fetching data from GitHub...", on: self.table)
     }
     
     private func hideLoading() {
@@ -65,10 +67,31 @@ class SearchResultViewController: BaseViewController {
     private func initiateTable() {
         guard let tableFrame = self.containerView?.frame else { return }
         self.table = SearchResultTableView(frame: tableFrame, dataSource: self.dataSource, delegate: self.dataSource)
+        self.addFooterRefresh()
+        self.containerView?.addSubview(table)
+    }
+}
+
+extension SearchResultViewController {
+    fileprivate func addFooterRefresh() {
+        self.table.configRefreshFooter(with: TableConfig.footerConfig(), container: self) { [weak self] in
+            if let bottomCheck = self?.reachedAtTheBottom(), bottomCheck {
+                self?.page += 1
+                self?.loadData()
+            }
+        }
+//        self.table.footerAlwaysAtBottom = false
     }
     
-    private func addResultTable() {
-        self.containerView?.addSubview(table)
-        self.table.reloadData()
+    fileprivate func switchToNoMoreData(_ noMoreData: Bool) {
+        self.table.switchRefreshFooter(to: (noMoreData) ? .noMoreData : .normal)
+    }
+    
+    fileprivate func reachedAtTheBottom() -> Bool {
+        let height = table.frame.height
+        let contentYoffset = table.contentOffset.y
+        let distanceFromBottom = table.contentSize.height - contentYoffset;
+        
+        return distanceFromBottom < height
     }
 }

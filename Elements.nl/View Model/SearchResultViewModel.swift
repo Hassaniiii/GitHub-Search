@@ -30,8 +30,9 @@ class SearchResultViewModel: NSObject {
     private func getCachedResponse(_ page: Int, _ completion: @escaping resultCompletion) {
         let startIndex = page * pageSize
         let endIndex = isEnough(page) ? (page + 1) * pageSize : items.count
-        let itemSlice = items[startIndex..<endIndex]
+        if endIndex < startIndex { completion([], nil); return }
         
+        let itemSlice = items[startIndex..<endIndex]
         displayItems.append(contentsOf: itemSlice)
         completion(Array(itemSlice), nil)
     }

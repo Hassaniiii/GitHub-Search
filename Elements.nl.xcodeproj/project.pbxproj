@@ -20,6 +20,7 @@
 		171CF68421CD566700E30806 /* SearchFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171CF68321CD566700E30806 /* SearchFilterViewController.swift */; };
 		17243E1321D4B17F007F1C9F /* Loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17243E1221D4B17F007F1C9F /* Loading.swift */; };
 		17243E1521D4B3EC007F1C9F /* Shape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17243E1421D4B3EC007F1C9F /* Shape.swift */; };
+		17243E1721D4C25D007F1C9F /* TableConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17243E1621D4C25D007F1C9F /* TableConfig.swift */; };
 		17A1D29021D15D59008DA94D /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A1D28F21D15D59008DA94D /* Theme.swift */; };
 		17A1D29221D15D75008DA94D /* ThemeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A1D29121D15D75008DA94D /* ThemeTests.swift */; };
 		17A1D29421D1650F008DA94D /* SearchResultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A1D29321D1650F008DA94D /* SearchResultModel.swift */; };
@@ -75,6 +76,7 @@
 		171CF68321CD566700E30806 /* SearchFilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFilterViewController.swift; sourceTree = "<group>"; };
 		17243E1221D4B17F007F1C9F /* Loading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loading.swift; sourceTree = "<group>"; };
 		17243E1421D4B3EC007F1C9F /* Shape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shape.swift; sourceTree = "<group>"; };
+		17243E1621D4C25D007F1C9F /* TableConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableConfig.swift; sourceTree = "<group>"; };
 		17A1D28F21D15D59008DA94D /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		17A1D29121D15D75008DA94D /* ThemeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeTests.swift; sourceTree = "<group>"; };
 		17A1D29321D1650F008DA94D /* SearchResultModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultModel.swift; sourceTree = "<group>"; };
@@ -238,6 +240,7 @@
 				17A1D28F21D15D59008DA94D /* Theme.swift */,
 				17243E1221D4B17F007F1C9F /* Loading.swift */,
 				17243E1421D4B3EC007F1C9F /* Shape.swift */,
+				17243E1621D4C25D007F1C9F /* TableConfig.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -502,6 +505,7 @@
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/PKHUD/PKHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/PullToRefreshKit/PullToRefreshKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -509,6 +513,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PKHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PullToRefreshKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -562,6 +567,7 @@
 				17B3CA5B21CD5A0200DFBC14 /* BaseTableView.swift in Sources */,
 				17243E1521D4B3EC007F1C9F /* Shape.swift in Sources */,
 				17A1D2A321D177A2008DA94D /* SearchResultRouter.swift in Sources */,
+				17243E1721D4C25D007F1C9F /* TableConfig.swift in Sources */,
 				171CF68021CD2C5200E30806 /* SearchFilterModel.swift in Sources */,
 				17243E1321D4B17F007F1C9F /* Loading.swift in Sources */,
 				17B3CA7021CD75AA00DFBC14 /* SearchButton.swift in Sources */,
