@@ -18,6 +18,8 @@
 		171CF68021CD2C5200E30806 /* SearchFilterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171CF67F21CD2C5200E30806 /* SearchFilterModel.swift */; };
 		171CF68221CD53EB00E30806 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171CF68121CD53EB00E30806 /* BaseViewController.swift */; };
 		171CF68421CD566700E30806 /* SearchFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171CF68321CD566700E30806 /* SearchFilterViewController.swift */; };
+		17243E1321D4B17F007F1C9F /* Loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17243E1221D4B17F007F1C9F /* Loading.swift */; };
+		17243E1521D4B3EC007F1C9F /* Shape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17243E1421D4B3EC007F1C9F /* Shape.swift */; };
 		17A1D29021D15D59008DA94D /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A1D28F21D15D59008DA94D /* Theme.swift */; };
 		17A1D29221D15D75008DA94D /* ThemeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A1D29121D15D75008DA94D /* ThemeTests.swift */; };
 		17A1D29421D1650F008DA94D /* SearchResultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A1D29321D1650F008DA94D /* SearchResultModel.swift */; };
@@ -71,6 +73,8 @@
 		171CF67F21CD2C5200E30806 /* SearchFilterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFilterModel.swift; sourceTree = "<group>"; };
 		171CF68121CD53EB00E30806 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		171CF68321CD566700E30806 /* SearchFilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFilterViewController.swift; sourceTree = "<group>"; };
+		17243E1221D4B17F007F1C9F /* Loading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loading.swift; sourceTree = "<group>"; };
+		17243E1421D4B3EC007F1C9F /* Shape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shape.swift; sourceTree = "<group>"; };
 		17A1D28F21D15D59008DA94D /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		17A1D29121D15D75008DA94D /* ThemeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeTests.swift; sourceTree = "<group>"; };
 		17A1D29321D1650F008DA94D /* SearchResultModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultModel.swift; sourceTree = "<group>"; };
@@ -232,6 +236,8 @@
 			isa = PBXGroup;
 			children = (
 				17A1D28F21D15D59008DA94D /* Theme.swift */,
+				17243E1221D4B17F007F1C9F /* Loading.swift */,
+				17243E1421D4B3EC007F1C9F /* Shape.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -495,15 +501,15 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-Elements.nl/Pods-Elements.nl-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
+				"${BUILT_PRODUCTS_DIR}/PKHUD/PKHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
-				"${BUILT_PRODUCTS_DIR}/netfox/netfox.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PKHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/netfox.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -554,8 +560,10 @@
 				17A1D29421D1650F008DA94D /* SearchResultModel.swift in Sources */,
 				17A1D2A121D171B4008DA94D /* ServiceManager.swift in Sources */,
 				17B3CA5B21CD5A0200DFBC14 /* BaseTableView.swift in Sources */,
+				17243E1521D4B3EC007F1C9F /* Shape.swift in Sources */,
 				17A1D2A321D177A2008DA94D /* SearchResultRouter.swift in Sources */,
 				171CF68021CD2C5200E30806 /* SearchFilterModel.swift in Sources */,
+				17243E1321D4B17F007F1C9F /* Loading.swift in Sources */,
 				17B3CA7021CD75AA00DFBC14 /* SearchButton.swift in Sources */,
 				17A1D2A521D17AB0008DA94D /* ServiceAPIRouter.swift in Sources */,
 				17A1D2A721D185A4008DA94D /* SearchResultBaseModel.swift in Sources */,
@@ -727,7 +735,10 @@
 				DEVELOPMENT_TEAM = 92TDT63R6P;
 				INFOPLIST_FILE = "$(SRCROOT)/Elements.nl/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.elements.Elements-nl";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -744,7 +755,10 @@
 				DEVELOPMENT_TEAM = 92TDT63R6P;
 				INFOPLIST_FILE = "$(SRCROOT)/Elements.nl/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.elements.Elements-nl";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -762,7 +776,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 92TDT63R6P;
 				INFOPLIST_FILE = Elements.nlTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.elements.Elements-nlTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -782,7 +800,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 92TDT63R6P;
 				INFOPLIST_FILE = Elements.nlTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.elements.Elements-nlTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;

@@ -7,19 +7,20 @@
 //
 
 import UIKit
+import PKHUD
 
 class SearchResultViewController: BaseViewController {
     @IBOutlet weak var containerView: UIView?
 
-    public var filter: SearchFilterViewModel!
+    public var filter = SearchFilterViewModel()
     private var table: SearchResultTableView!
     private var dataSource: SearchResultTableDataSource!
     private var viewModel: SearchResultViewModel!
     private lazy var initiateView: Void = {
         self.initiateVariable()
-        self.initiateTable()
-        self.addResultTable()
+        self.loadData()
     }()
+    private var page: Int = 0
     
     public class func instantiate() -> SearchResultViewController? {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -42,6 +43,23 @@ class SearchResultViewController: BaseViewController {
         self.viewModel = SearchResultViewModel()
         self.dataSource = SearchResultTableDataSource()
         self.dataSource.resultViewModel = self.viewModel
+    }
+    
+    private func loadData() {
+        self.showLoading()
+        viewModel.getSearchResult(using: filter, at: page) { (items, error) in
+            self.hideLoading()
+            self.initiateTable()
+            self.addResultTable()
+        }
+    }
+    
+    private func showLoading() {
+        Loading.show(title: "Please wait", message: "fetching data from GitHub...", on: self.containerView)
+    }
+    
+    private func hideLoading() {
+        Loading.hide()
     }
     
     private func initiateTable() {

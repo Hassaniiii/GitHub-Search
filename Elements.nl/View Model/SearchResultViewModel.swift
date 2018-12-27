@@ -60,9 +60,9 @@ class SearchResultViewModel: NSObject {
         return displayItems.count
     }
     
-    public func repoProfile(at indexPath: IndexPath) -> URL? {
+    public func repoAvatar(at indexPath: IndexPath) -> URL? {
         if indexPath.row >= displayItems.count { return nil }
-        return displayItems[indexPath.row].owner?.profileURL
+        return displayItems[indexPath.row].owner?.avatarURL
     }
     
     public func repoURL(at indexPath: IndexPath) -> URL? {

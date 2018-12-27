@@ -7,7 +7,6 @@
 //
 
 import Alamofire
-import netfox
 
 typealias serviceCompletion = ((_ response: [String:Any]?, _ error: Error?) -> Void)
 

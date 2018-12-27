@@ -21,12 +21,8 @@ class SearchResultItemCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        self.shapeView()
-    }
-
-    private func shapeView() {
-        containerView.layer.masksToBounds = true
-        containerView.layer.cornerRadius = 8.0
+        containerView = Shape.round(containerView)
+        profileImage = Shape.round(profileImage) as? UIImageView
     }
     
     public func setupCell(_ viewModel: SearchResultViewModel, at indexPath: IndexPath) {
@@ -57,11 +53,11 @@ class SearchResultItemCell: UITableViewCell {
     private func setupProfile() {
         self.profileImage.image = nil
         
-        guard let profile = viewModel.repoProfile(at: self.indexPath) else { return }
+        guard let profile = viewModel.repoAvatar(at: self.indexPath) else { return }
         self.profileImage.sd_setImage(with: profile)
     }
     
     private func setupArchived() {
-        self.backgroundColor = (viewModel.repoArchived(at: self.indexPath)) ? .gray : .white
+        containerView.backgroundColor = (viewModel.repoArchived(at: self.indexPath)) ? .gray : .white
     }
 }
