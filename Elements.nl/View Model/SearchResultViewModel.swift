@@ -59,6 +59,36 @@ class SearchResultViewModel: NSObject {
     public func numberOfItems() -> Int {
         return displayItems.count
     }
+    
+    public func repoProfile(at indexPath: IndexPath) -> URL? {
+        if indexPath.row >= displayItems.count { return nil }
+        return displayItems[indexPath.row].owner?.profileURL
+    }
+    
+    public func repoURL(at indexPath: IndexPath) -> URL? {
+        if indexPath.row >= displayItems.count { return nil }
+        return displayItems[indexPath.row].url
+    }
+    
+    public func repoStars(at indexPath: IndexPath) -> String? {
+        if indexPath.row >= displayItems.count { return nil }
+        return displayItems[indexPath.row].starsCount?.stringValue
+    }
+    
+    public func repoForks(at indexPath: IndexPath) -> String? {
+        if indexPath.row >= displayItems.count { return nil }
+        return displayItems[indexPath.row].forksCount?.stringValue
+    }
+    
+    public func repoArchived(at indexPath: IndexPath) -> Bool {
+        if indexPath.row >= displayItems.count { return true }
+        return displayItems[indexPath.row].archived?.boolValue ?? true
+    }
+    
+    public func repoName(at indexPath: IndexPath) -> String? {
+        if indexPath.row >= displayItems.count { return nil }
+        return displayItems[indexPath.row].name
+    }
 }
 
 extension SearchResultViewModel {

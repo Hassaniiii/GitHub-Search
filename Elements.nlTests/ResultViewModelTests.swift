@@ -42,14 +42,15 @@ class ResultViewModelTests: XCTestCase {
             
             guard let item = items?.first else { return }
             XCTAssertEqual(item.id?.intValue, 132188242)
-            XCTAssertEqual(item.name, "CBORSwift")
+            XCTAssertEqual(item.name, "Hassaniiii/CBORSwift")
             XCTAssertFalse(item.privatee?.boolValue ?? true)
-            XCTAssertEqual(item.url, "https://github.com/Hassaniiii/CBORSwift")
+            XCTAssertEqual(item.url, URL(string: "https://github.com/Hassaniiii/CBORSwift"))
             XCTAssertEqual(item.desc, "Swift implementation for CBOR")
             XCTAssertEqual(item.update, "2018-12-24 19:11")
             XCTAssertFalse(item.archived?.boolValue ?? true)
             XCTAssertEqual(item.openIssuesCount?.intValue, 1)
             XCTAssertEqual(item.starsCount?.intValue, 1)
+            XCTAssertEqual(item.forksCount?.intValue, 0)
             XCTAssertNotNil(item.owner)
             
             guard let owner = item.owner else { return }

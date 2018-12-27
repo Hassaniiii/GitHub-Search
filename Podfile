@@ -5,7 +5,8 @@ target 'Elements.nl' do
   pod 'Alamofire'
   pod 'ObjectMapper'
   pod 'netfox'
-  
+  pod 'SDWebImage', '~>3.8'
+
   target 'Elements.nlTests' do
     inherit! :search_paths
     
