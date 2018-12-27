@@ -21,7 +21,7 @@ class SearchResultViewController: BaseViewController {
         self.initiateTable()
         self.loadData()
     }()
-    private var page: Int = 0
+    private var page: Int = 1
     
     public class func instantiate() -> SearchResultViewController? {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)

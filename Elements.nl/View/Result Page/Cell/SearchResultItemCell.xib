@@ -35,7 +35,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="K4X-XX-pF9">
-                                <rect key="frame" x="134.5" y="102" width="74" height="15"/>
+                                <rect key="frame" x="111" y="102" width="121" height="15"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="6ea-iP-vf8">
                                         <rect key="frame" x="0.0" y="0.0" width="27" height="15"/>
@@ -83,8 +83,38 @@
                                             <constraint firstAttribute="height" constant="15" id="NEd-C0-pC7"/>
                                         </constraints>
                                     </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="3Lo-Wb-xs8">
+                                        <rect key="frame" x="94" y="0.0" width="27" height="15"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aJ4-eh-gFf">
+                                                <rect key="frame" x="0.0" y="0.0" width="10" height="15"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="10" id="DuM-Wy-aKw"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="issues" translatesAutoresizingMaskIntoConstraints="NO" id="XJb-zc-d3b">
+                                                <rect key="frame" x="12" y="0.0" width="15" height="15"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="15" id="oTz-K4-ue4"/>
+                                                </constraints>
+                                            </imageView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="15" id="XMs-fZ-Jgn"/>
+                                        </constraints>
+                                    </stackView>
                                 </subviews>
                             </stackView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="private" translatesAutoresizingMaskIntoConstraints="NO" id="BfC-6o-QPp">
+                                <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="m4b-Wc-1hH"/>
+                                    <constraint firstAttribute="width" constant="20" id="u1Z-bL-JDw"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -92,8 +122,10 @@
                             <constraint firstItem="xDj-gT-eeZ" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Dyr-Tg-TWh" secondAttribute="leading" constant="8" id="5eW-XO-xZo"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="xDj-gT-eeZ" secondAttribute="trailing" constant="8" id="8KQ-Sr-DS3"/>
                             <constraint firstItem="hJg-7d-D6o" firstAttribute="top" secondItem="Dyr-Tg-TWh" secondAttribute="top" constant="8" id="Gfd-QN-Eap"/>
+                            <constraint firstItem="BfC-6o-QPp" firstAttribute="top" secondItem="Dyr-Tg-TWh" secondAttribute="top" id="YS0-YL-5k2"/>
                             <constraint firstItem="xDj-gT-eeZ" firstAttribute="top" secondItem="hJg-7d-D6o" secondAttribute="bottom" constant="8" id="goC-p6-ImA"/>
                             <constraint firstItem="xDj-gT-eeZ" firstAttribute="centerX" secondItem="hJg-7d-D6o" secondAttribute="centerX" id="mQB-S4-q2g"/>
+                            <constraint firstItem="BfC-6o-QPp" firstAttribute="leading" secondItem="Dyr-Tg-TWh" secondAttribute="leading" id="yEQ-gL-pXe"/>
                             <constraint firstItem="hJg-7d-D6o" firstAttribute="centerX" secondItem="Dyr-Tg-TWh" secondAttribute="centerX" id="z3E-Ot-1l6"/>
                             <constraint firstItem="K4X-XX-pF9" firstAttribute="top" secondItem="xDj-gT-eeZ" secondAttribute="bottom" constant="8" id="z3c-Vr-g8P"/>
                         </constraints>
@@ -112,7 +144,9 @@
                 <outlet property="containerView" destination="Dyr-Tg-TWh" id="hOs-m6-RRK"/>
                 <outlet property="profileImage" destination="hJg-7d-D6o" id="mFm-bd-dl6"/>
                 <outlet property="repoForks" destination="OJN-LP-y2t" id="3cA-Fo-V7j"/>
+                <outlet property="repoIssues" destination="aJ4-eh-gFf" id="4TN-3B-iDj"/>
                 <outlet property="repoName" destination="xDj-gT-eeZ" id="9qW-dG-rAp"/>
+                <outlet property="repoPrivate" destination="BfC-6o-QPp" id="Bic-w1-7FH"/>
                 <outlet property="repoStars" destination="JHa-Cn-qoo" id="X9A-WQ-83q"/>
             </connections>
             <point key="canvasLocation" x="-220" y="-51.724137931034484"/>
@@ -120,6 +154,8 @@
     </objects>
     <resources>
         <image name="fork" width="384" height="384"/>
+        <image name="issues" width="384" height="384"/>
+        <image name="private" width="384" height="384"/>
         <image name="star" width="384" height="384"/>
     </resources>
 </document>

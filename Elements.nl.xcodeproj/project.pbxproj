@@ -336,9 +336,9 @@
 			isa = PBXGroup;
 			children = (
 				84EB468321D2591A00A69130 /* Cell */,
+				17243E1821D4F727007F1C9F /* SearchResultViewController.swift */,
 				17243E1921D4F727007F1C9F /* SearchResultTableDataSource.swift */,
 				17243E1A21D4F727007F1C9F /* SearchResultTableView.swift */,
-				17243E1821D4F727007F1C9F /* SearchResultViewController.swift */,
 			);
 			path = "Result Page";
 			sourceTree = "<group>";

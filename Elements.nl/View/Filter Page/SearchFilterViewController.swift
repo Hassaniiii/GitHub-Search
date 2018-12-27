@@ -51,6 +51,8 @@ class SearchFilterViewController: BaseViewController {
     }
     
     @IBAction func search(_ sender: UIButton) {
+        self.filter.resetPaging()
+        
         guard let resultVC = SearchResultViewController.instantiate() else { return }
         resultVC.filter = self.filter
         navigationController?.pushViewController(resultVC, animated: true)

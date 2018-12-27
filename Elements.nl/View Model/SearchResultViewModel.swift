@@ -16,7 +16,6 @@ class SearchResultViewModel: NSObject {
     private var items: [SearchResultModelController] = []
     private var displayItems: Array<SearchResultModelController> = []
     private var pageSize: Int = 10
-    private var pageCounter: Int = 0
     private var serviceManager: ServiceManager!
     
     override init() {
@@ -26,13 +25,13 @@ class SearchResultViewModel: NSObject {
     }
     
     public func getSearchResult(using filter: SearchFilterViewModel, at page: Int, on completion: @escaping resultCompletion) {
-        self.pageCounter = page
-        isCachedResponse() ? getCachedResponse(completion) : sendSearchRequest(filter, completion)
+        if page == 0 { completion([], nil); return }
+        isCachedResponse() ? getCachedResponse(page, completion) : sendSearchRequest(filter, page, completion)
     }
     
-    private func getCachedResponse(_ completion: @escaping resultCompletion) {
-        let startIndex = pageCounter * pageSize
-        let endIndex = isEnough() ? (pageCounter + 1) * pageSize : items.count
+    private func getCachedResponse(_ page: Int, _ completion: @escaping resultCompletion) {
+        let startIndex = (page - 1) * pageSize
+        let endIndex = isEnough(page) ? (page * pageSize) : (items.count)
         if endIndex < startIndex { completion([], nil); return }
         
         let itemSlice = items[startIndex..<endIndex]
@@ -40,7 +39,7 @@ class SearchResultViewModel: NSObject {
         completion(Array(itemSlice), nil)
     }
     
-    private func sendSearchRequest(_ filter: SearchFilterViewModel, _ completion: @escaping resultCompletion) {
+    private func sendSearchRequest(_ filter: SearchFilterViewModel, _ page: Int, _ completion: @escaping resultCompletion) {
         let router = SearchResultRouter.fetch(query: filter.searchQuery())
         self.serviceManager.APICall(router) { (response, error) in
             if let error = error {
@@ -51,7 +50,7 @@ class SearchResultViewModel: NSObject {
             if let response = response, let result = Mapper<SearchResultBaseModelController>().map(JSON: response) {
                 self.allItemsCount = result.total ?? 0
                 self.items.append(contentsOf: result.items ?? [])
-                self.getCachedResponse(completion)
+                self.getCachedResponse(page, completion)
                 return
             }
             completion([], nil)
@@ -88,9 +87,19 @@ class SearchResultViewModel: NSObject {
         return displayItems[indexPath.row].forksCount?.stringValue
     }
     
+    public func repoIssues(at indexPath: IndexPath) -> String? {
+        if indexPath.row >= displayItems.count { return nil }
+        return displayItems[indexPath.row].openIssuesCount?.stringValue
+    }
+    
     public func repoArchived(at indexPath: IndexPath) -> Bool {
         if indexPath.row >= displayItems.count { return true }
         return displayItems[indexPath.row].archived?.boolValue ?? true
+    }
+    
+    public func repoPrivate(at indexPath: IndexPath) -> Bool {
+        if indexPath.row >= displayItems.count { return false }
+        return displayItems[indexPath.row].privatee?.boolValue ?? true
     }
     
     public func repoName(at indexPath: IndexPath) -> String? {
@@ -104,7 +113,7 @@ extension SearchResultViewModel {
         return items.count != displayItems.count
     }
     
-    fileprivate func isEnough() -> Bool {
-        return items.count > (pageSize) * (pageCounter + 1)
+    fileprivate func isEnough(_ page: Int) -> Bool {
+        return items.count > (pageSize * page)
     }
 }

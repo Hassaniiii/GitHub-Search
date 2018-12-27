@@ -15,6 +15,8 @@ class SearchResultItemCell: UITableViewCell {
     @IBOutlet weak var repoName: UILabel!
     @IBOutlet weak var repoStars: UILabel!
     @IBOutlet weak var repoForks: UILabel!
+    @IBOutlet weak var repoIssues: UILabel!
+    @IBOutlet weak var repoPrivate: UIImageView!
     private var viewModel: SearchResultViewModel!
     private var indexPath: IndexPath!
     
@@ -23,6 +25,7 @@ class SearchResultItemCell: UITableViewCell {
         
         containerView = Shape.round(containerView)
         profileImage = Shape.round(profileImage) as? UIImageView
+        self.addGesture()
     }
     
     public func setupCell(_ viewModel: SearchResultViewModel, at indexPath: IndexPath) {
@@ -30,10 +33,10 @@ class SearchResultItemCell: UITableViewCell {
         self.indexPath = indexPath
         
         self.setupName()
-        self.setupForksStars()
+        self.setupForksStarsIssues()
         self.setupProfile()
         self.setupArchived()
-        self.addGesture()
+        self.setupPrivate()
     }
     
     private func setupName() {
@@ -43,12 +46,14 @@ class SearchResultItemCell: UITableViewCell {
         self.repoName.text = name
     }
     
-    private func setupForksStars() {
+    private func setupForksStarsIssues() {
         self.repoStars.text = "0"
         self.repoForks.text = "0"
+        self.repoIssues.text = "0"
         
         if let stars = viewModel.repoStars(at: self.indexPath) { self.repoStars.text = stars }
         if let forks = viewModel.repoForks(at: self.indexPath) { self.repoForks.text = forks }
+        if let issues = viewModel.repoIssues(at: self.indexPath) { self.repoIssues.text = issues }
     }
     
     private func setupProfile() {
@@ -60,6 +65,10 @@ class SearchResultItemCell: UITableViewCell {
     
     private func setupArchived() {
         containerView.backgroundColor = (viewModel.repoArchived(at: self.indexPath)) ? .lightGray : .white
+    }
+    
+    private func setupPrivate() {
+        self.repoPrivate.isHidden = !(viewModel.repoPrivate(at: self.indexPath))
     }
     
     private func addGesture() {

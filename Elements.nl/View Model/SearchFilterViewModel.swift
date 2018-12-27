@@ -13,7 +13,8 @@ class SearchFilterViewModel: NSObject {
     var keyword: String? {
         set(newKeyword) {
             guard let keyword = newKeyword else { return }
-            filter.keyword = "repositories?q=\(keyword)"
+            guard let encodedKeyword = keyword.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) else { return }
+            filter.keyword = "repositories?q=\(encodedKeyword)"
         }
         get {
             return filter.keyword?.trimmingCharacters(in: .whitespacesAndNewlines)
@@ -42,6 +43,10 @@ class SearchFilterViewModel: NSObject {
         guard let keyword = self.keyword else { return "" }
         
         return self.searchQueryWithPaging(keyword + self.sort)
+    }
+    
+    public func resetPaging() {
+        self.pageCounter = 1
     }
     
     private func searchQueryWithPaging(_ currentQuery: String) -> String {

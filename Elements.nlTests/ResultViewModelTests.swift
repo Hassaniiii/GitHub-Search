@@ -23,7 +23,7 @@ class ResultViewModelTests: XCTestCase {
         let exp_success = self.expectation(description: "search result complete response")
         self.APICall_Success_CompleteResponse()
         
-        searchResultViewModel.getSearchResult(using: self.mockFilterViewModel(), at: 0) { (items, error) in
+        searchResultViewModel.getSearchResult(using: self.mockFilterViewModel(), at: 1) { (items, error) in
             XCTAssertNil(error)
             XCTAssertNotNil(items)
             XCTAssertGreaterThanOrEqual(items?.count ?? 0, 0)
@@ -37,7 +37,7 @@ class ResultViewModelTests: XCTestCase {
         let exp_success = self.expectation(description: "search result complete response")
         self.APICall_Success_CompleteResponse()
         
-        searchResultViewModel.getSearchResult(using: self.mockFilterViewModel(), at: 0) { (items, error) in
+        searchResultViewModel.getSearchResult(using: self.mockFilterViewModel(), at: 1) { (items, error) in
             XCTAssertNotNil(items?.first)
             
             guard let item = items?.first else { return }
@@ -68,7 +68,7 @@ class ResultViewModelTests: XCTestCase {
         let exp_success = self.expectation(description: "search result empty response")
         self.APICall_Success_EmptyResponse()
         
-        searchResultViewModel.getSearchResult(using: self.mockFilterViewModel(), at: 0) { (items, error) in
+        searchResultViewModel.getSearchResult(using: self.mockFilterViewModel(), at: 1) { (items, error) in
             XCTAssertNil(error)
             XCTAssertNotNil(items)
             XCTAssertEqual(items?.count ?? 1, 0)
@@ -82,7 +82,7 @@ class ResultViewModelTests: XCTestCase {
         let exp_success = self.expectation(description: "search result nil response")
         self.APICall_Success_NilResponse()
         
-        searchResultViewModel.getSearchResult(using: self.mockFilterViewModel(), at: 0) { (items, error) in
+        searchResultViewModel.getSearchResult(using: self.mockFilterViewModel(), at: 1) { (items, error) in
             XCTAssertNil(error)
             XCTAssertNotNil(items)
             XCTAssertEqual(items?.count ?? 1, 0)
@@ -96,7 +96,7 @@ class ResultViewModelTests: XCTestCase {
         let exp_failure = self.expectation(description: "search result nil response")
         self.APICall_Failure()
         
-        searchResultViewModel.getSearchResult(using: self.mockFilterViewModel(), at: 0) { (items, error) in
+        searchResultViewModel.getSearchResult(using: self.mockFilterViewModel(), at: 1) { (items, error) in
             XCTAssertNotNil(error)
             XCTAssertNil(items)
             
@@ -109,7 +109,7 @@ class ResultViewModelTests: XCTestCase {
         let exp_success = self.expectation(description: "search result with huge complete respo")
         self.APICall_HugeResponse()
         
-        searchResultViewModel.getSearchResult(using: self.mockFilterViewModel(), at: 0) { (items, error) in
+        searchResultViewModel.getSearchResult(using: self.mockFilterViewModel(), at: 1) { (items, error) in
             XCTAssertEqual(self.searchResultViewModel.numberOfItems(), 10)
             XCTAssertEqual(items?.count ?? 0, 10)
             XCTAssertNotNil(items?.first)
@@ -117,7 +117,7 @@ class ResultViewModelTests: XCTestCase {
             guard let firstItem = items?.first else { return }
             XCTAssertEqual(firstItem.id?.intValue, 44838949)
             
-            self.searchResultViewModel.getSearchResult(using: self.mockFilterViewModel(), at: 1) { (items, error) in
+            self.searchResultViewModel.getSearchResult(using: self.mockFilterViewModel(), at: 2) { (items, error) in
                 XCTAssertEqual(self.searchResultViewModel.numberOfItems(), 20)
                 XCTAssertEqual(items?.count ?? 0, 10)
                 XCTAssertNotNil(items?.first)
